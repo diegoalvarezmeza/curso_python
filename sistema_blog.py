@@ -32,7 +32,7 @@ posts = [
 ]
 
 while True:
-    print("---MENU DEL BLOG---")
+    print("\n---MENU DEL BLOG---")
     print("1. Ver todos los posts")
     print("2. Buscar por titulo")
     print("3. Filtrar por tag")
@@ -54,8 +54,21 @@ while True:
         print(lista_auxiliar)
 
     elif val == "3":
-        pass
+        lista_tags = []
+        tag_value = input("Ingrese un tag: ").lower()
+        for post in posts:
+            for tag in post["tags"]:
+                if tag_value in tag.lower():
+                    lista_tags.append(post["titulo"])
+
+        if lista_tags:
+            print(f"Post con el tag {tag}: \n")
+            for tag_aux in lista_tags:
+                print(f"- {tag_aux}")
 
     elif val == "4":
         print("Saliendo del programa...\n")
         break
+
+    else:
+        print("Opcion invalida, intenta de nuevo")
