@@ -47,14 +47,14 @@ def menu():
         print(f"Debe ingresar un numero del 1 al 5, intente de nuevo")
 
 def listar_posts(posts):
-    print("Post disponibles: \n")
+    print("-------- Post disponibles ------ \n")
     for post in posts:
         print(f"Titulo del post: {post['titulo']}| Autor: {post['autor']['nombre']}")
 
 def buscar_por_titulo(posts, termino):
     lista_auxiliar = []
     for post in posts:
-        if termino in post['titulo'].lower():
+        if termino.lower() in post['titulo'].lower():
             lista_auxiliar.append(post['titulo'])
     return lista_auxiliar
 
@@ -62,7 +62,7 @@ def filtrar_por_tag(posts, tag_value):
     lista_tags = []
     for post in posts:
         for tag in post["tags"]:
-            if tag_value in tag.lower():
+            if tag_value.lower() in tag.lower():
                 lista_tags.append(post["titulo"])
     return lista_tags
 
@@ -78,7 +78,6 @@ def validar_post(new_post):
         estado = new_post["estado"]
 
     except KeyError as e:
-        print(f"Falta la clave: {e}")
         return False, f"Falta la clave: {e}"
 
     if titulo == "":
@@ -86,25 +85,25 @@ def validar_post(new_post):
         return False, "El titulo no puede estar vacio"
 
     if contenido == "":
-        print("El contenido no puede estar vacio")
         return False, "El contenido no puede estar vacio"
 
 
     if not isinstance(autor,dict):
-        print("El autor debe ser un diccionario")
         return False, "El autor debe ser un diccionario"
 
     try:
         nombre = autor["nombre"]
 
     except KeyError as e:
-        print(f"Falta la clave: {e}")
         return False, f"Falta la clave: {e}"
 
+    if not isinstance(tags, list):
+        return False, "la clave tags debe ser una lista"
+
+    if not (post["estado"].lower() in estados_post):
+        return False, f"Estado no valido, debe ser uno de los estados disponibles: {estados_post}"
+
     return True, "El post es valido"
-
-    
-
 
 
 if __name__ == "__main__":
@@ -112,7 +111,7 @@ if __name__ == "__main__":
     while True:
         menu()
 
-        val = input("Ingrese una opcion: \n")
+        val = input("Ingrese una opcion:")
 
         if val == "1":
             listar_posts(posts)
