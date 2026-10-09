@@ -1,8 +1,0 @@
-(venv) (base) macbookprodiego@MacBook-Pro-de-Diego curso_python % python evidencia_post.py 
---- REPORTE DE SISTEMA ---
-Post: Mi primer post en Python
-Autor: Diego Alvarez
-Estado: Entorno configurado correctamente
---------------------------
-(venv) (base) macbookprodiego@MacBook-Pro-de-Diego curso_python % ls
-evidencia_post.py       practicas               venv
