@@ -42,7 +42,7 @@ class Blog:
 
     def agregar_post(self, post):
         self.posts.append(post)
-        print(f"Post '{post.titulo}' agregado al blog '{self.nombre}'")
+
 
     def validar_post(self, Post):
         if not isinstance(Post, Post):
@@ -68,4 +68,39 @@ class Blog:
         for post in self.posts:
             print(f"ID: {post.id}, Titulo: {post.titulo}, Autor: {post.autor.nombre}, Estado: {post.estado}")
 
-        
+    def guara
+
+
+
+autor1 = Autor(
+    nombre="Diego Alvarez",
+    bio="Data Scientist con 5 años de experiencia",
+    especialidad="Series de tiempo y Machine Learning",
+    redes_sociales=["diegoalvarezmeza", "diego"]
+)
+
+post1 = Post(
+    id=1,
+    titulo="Introducción a Series de Tiempo",
+    contenido="En este post aprenderemos sobre series de tiempo...",
+    autor=autor1,
+    tags=["Series de Tiempo", "Python", "Análisis de Datos"],
+    estado="Publicado"
+)
+
+
+blog = Blog(nombre="Mi Blog de Ciencia de Datos")
+
+blog.listar_posts()
+
+blog.agregar_post(post1)
+
+blog.listar_posts()
+
+blog.get_posts()
+
+blog.buscar_por_titulo("Machine Learning")
+
+blog.filtrar_por_tag("Python")
+
+

@@ -2,6 +2,7 @@ from blog.datos import posts
 from blog.menu import menu
 from blog.operaciones import listar_posts, buscar_por_titulo, filtrar_por_tag
 from blog.validaciones import validar_post
+from blog.modelos import Autor, Post, Blog
 
 
 
@@ -32,6 +33,12 @@ if __name__ == "__main__":
                 print(f"Post: {post['titulo']} - Validación: {message}")
         
         elif val == "5":
+            pass
+
+        elif val == "6":
+            pass
+
+        elif val == "7":
             print("Saliendo del programa...\n")
             break
 
