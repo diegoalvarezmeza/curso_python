@@ -1,3 +1,9 @@
+import json
+from pathlib import Path
+
+RUTA_ARCHIVO = Path(__file__).parent / "posts.json"
+
+
 perfil_autor = {'nombre':'Diego Alvarez',
                 'bio':' Data Scientist con 5 años de experiencia',
                 'especialidad':'Series de tiempo y Machine Learning',
@@ -34,3 +40,8 @@ posts = [
         "estado": "Publicado"
     }
 ]
+
+def cargar_post():
+    pass
+
+
